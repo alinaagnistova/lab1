@@ -1,7 +1,7 @@
 let y = document.getElementById('y');
 let r = document.getElementById('r');
 
-
+let replaceDot = val => val.replace(',', '.');
 
 
 function showExc(message) {
@@ -18,37 +18,39 @@ function showExc(message) {
 }
 
 function validate() {
+    let r1 = replaceDot(r.value);
+    let y1 = replaceDot(y.value);
     if (x === null) {
         showExc("Необходимо выбрать значение координаты X:(");
         return false;
     }
 
-    if (y === "") {
+    if (y1 === "") {
         showExc("Необходимо указать значение координаты Y:(");
         return false;
     }
 
-    if (isNaN(y)) {
+    if (isNaN(y1)) {
         showExc("Нет, так не надо. Надо вот так: Y - число");
         return false;
     }
 
-    if (y < -5 || y > 5) {
+    if (y1 < -5 || y1 > 5) {
         showExc("Координата Y может быть любым числом из диапазона {-5;5}");
         return false;
     }
 
-    if (r === "") {
+    if (r1 === "") {
         showExc("Необходимо указать значение радиуса:(");
         return false;
     }
 
-    if (isNaN(r)) {
+    if (isNaN(r1)) {
         showExc("Нет, так не надо. Надо вот так: Радиус - число");
         return false;
     }
 
-    if (r < 1 || r > 4) {
+    if (r1 < 1 || r1 > 4) {
         showExc("Радиус может быть любым числом из диапазона {1;4}");
         return false;
     }

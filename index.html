@@ -2,9 +2,9 @@
 <html lang="ru">
   <head>
     <title>lab1</title>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>
     <style>
         body{
@@ -85,11 +85,11 @@
    </div>
    <div class="form-block">
     <figure class="areas-pic">
-        <img src="areas.png">
+        <img src="areas.png" alt="areas">
     </figure>
-   <form>
+   <form id ="valForm" method="post">
     <div class="x-radio">
-    <label>Координата X:</label>
+    <label>Координата X:
     <input type="radio"  id="-2" name="x" value="-2">
     <label for="-2">-2</label>
 
@@ -116,20 +116,22 @@
 
     <input type="radio"  id="2" name="x" value="2">
     <label for="2">2</label>
+    </label>
     </div>
 
     <label for="y">Координата Y:</label>
-    <input type="text" id="y">
+    <input type="text" id="y" placeholder="{-5...5}">
 
     <label for="r">Радиус R:</label>
-    <input type="text" id="r">
+    <input type="text" id="r" placeholder="{1...4}">
 
     <div id="alert"></div>
-    <button type="button" class="update-data-button" id="sendButton" onclick="send()">Отправить данные</button>
+    <button type="submit" class="update-data-button" onclick="send()">Отправить данные</button>
    </form>
    </div>
    <div class="table-block">
-    <table cellspacing="6" cellpadding="15" id="table">
+<!--       cellspacing="6" cellpadding="15"-->
+    <table id="table">
         <caption><b>Результаты</b></caption>
         <tr> 
             <th>Координата X</th>
@@ -143,8 +145,7 @@
    </div>
   </body>
   <script src="js/sender.js"></script>
-  <script src="js/table.js"></script>
-  <script src="js/cookies.js"></script>
   <script src="js/validator.js"></script>
+  <script src="js/radioCheck.js"></script>
   </html>
 
