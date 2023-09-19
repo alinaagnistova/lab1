@@ -1,5 +1,6 @@
-let y = document.getElementById('y');
-let r = document.getElementById('r');
+let x = document.querySelector('input[name="x"]:checked');
+let y = document.getElementById('y').value;
+let r = document.getElementById('r').value;
 
 let replaceDot = val => val.replace(',', '.');
 
@@ -20,7 +21,7 @@ function showExc(message) {
 function validate() {
     let r1 = replaceDot(r.value);
     let y1 = replaceDot(y.value);
-    if (x === null) {
+    if (x == null){
         showExc("Необходимо выбрать значение координаты X:(");
         return false;
     }
