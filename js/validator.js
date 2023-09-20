@@ -1,10 +1,3 @@
-let x = document.querySelector('input[name="x"]:checked');
-let y = document.getElementById('y').value;
-let r = document.getElementById('r').value;
-
-let replaceDot = val => val.replace(',', '.');
-
-
 function showExc(message) {
     let alert = document.getElementById('alert');
     let alertDiv = document.createElement('div');
@@ -18,42 +11,40 @@ function showExc(message) {
 
 }
 
-function validate() {
-    let r1 = replaceDot(r.value);
-    let y1 = replaceDot(y.value);
-    if (x == null){
-        showExc("Необходимо выбрать значение координаты X:(");
-        return false;
-    }
+function validate(x, y, r) {
+    // if (x == null){
+    //     showExc("Необходимо выбрать значение координаты X:(");
+    //     return false;
+    // }
 
-    if (y1 === "") {
-        showExc("Необходимо указать значение координаты Y:(");
-        return false;
-    }
+    // if (y1 === "") {
+    //     showExc("Необходимо указать значение координаты Y:(");
+    //     return false;
+    // }
 
-    if (isNaN(y1)) {
-        showExc("Нет, так не надо. Надо вот так: Y - число");
-        return false;
-    }
+    // if (isNaN(y1)) {
+    //     showExc("Нет, так не надо. Надо вот так: Y - число");
+    //     return false;
+    // }
 
-    if (y1 < -5 || y1 > 5) {
-        showExc("Координата Y может быть любым числом из диапазона {-5;5}");
-        return false;
-    }
+    // if (y1 < -5 || y1 > 5) {
+    //     showExc("Координата Y может быть любым числом из диапазона {-5;5}");
+    //     return false;
+    // }
 
-    if (r1 === "") {
-        showExc("Необходимо указать значение радиуса:(");
-        return false;
-    }
+    // if (r1 === "") {
+    //     showExc("Необходимо указать значение радиуса:(");
+    //     return false;
+    // }
 
-    if (isNaN(r1)) {
-        showExc("Нет, так не надо. Надо вот так: Радиус - число");
-        return false;
-    }
+    // if (isNaN(r1)) {
+    //     showExc("Нет, так не надо. Надо вот так: Радиус - число");
+    //     return false;
+    // }
 
-    if (r1 < 1 || r1 > 4) {
-        showExc("Радиус может быть любым числом из диапазона {1;4}");
-        return false;
-    }
+    // if (r1 < 1 || r1 > 4) {
+    //     showExc("Радиус может быть любым числом из диапазона {1;4}");
+    //     return false;
+    // }
     return true;
 }

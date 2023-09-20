@@ -1,53 +1,60 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
+<head>
     <title>lab1</title>
-    <meta charset="UTF-8" >
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>
+    <!--    <script src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>-->
     <style>
-        body{
+        body {
             background-color: white;
             font-family: sans-serif;
         }
-        .header{
+
+        .header {
             border-style: solid;
             border-color: black;
             border-width: 10px;
             color: black;
             font-size: 16px;
             text-align: center;
-            font-family:Arial, Helvetica, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
         }
-        .form-block{
+
+        .form-block {
             background-color: white;
             border: 5px solid black;
             border-radius: 7px;
-            padding:5%;
-            float:left;
+            padding: 5%;
+            float: left;
             margin-top: 1%;
             text-align: left;
             font-size: 35px;
         }
-        label{
+
+        label {
             display: block;
             margin: 5%;
         }
-        .x-radio{
+
+        .x-radio {
             margin-bottom: 15%;
         }
-        input{
-           width: 300px; 
-           height: 20px;
-           border: 3px dashed #95918C;
+
+        input {
+            width: 300px;
+            height: 20px;
+            border: 3px dashed #95918C;
         }
-        input[type="radio"]{
+
+        input[type="radio"] {
             cursor: pointer;
         }
-        .update-data-button{
+
+        .update-data-button {
             display: block;
-            margin:10%;
+            margin: 10%;
             font-size: 25px;
             border-radius: 7px;
             border: 2px solid black;
@@ -56,95 +63,82 @@
             background-color: black;
             cursor: pointer;
         }
-        .update-data-button:hover{
+
+        .update-data-button:hover {
             background-color: #DCDCDC;
         }
-        .update-data-button:active{
+
+        .update-data-button:active {
             background-color: black;
         }
-        table{
+
+        table {
             border: 3px solid white;
             margin-left: 20%;
         }
-        th{
+
+        th {
             border: 3px dashed #95918C;
         }
-        caption{
+
+        caption {
             font-size: 30px;
             margin: 1%;
         }
     </style>
-  </head>
-  <body>
-   <div class="header">
+</head>
+<body>
+<div class="header">
     <h1>
-     Агнистова Алина Юрьевна   
+        Агнистова Алина Юрьевна
     </h1>
     <h3>Группа: P3225</h3>
     <h3>Номер варианта:3500</h3>
-   </div>
-   <div class="form-block">
+</div>
+<div class="form-block">
     <figure class="areas-pic">
         <img src="areas.png" alt="areas">
     </figure>
-   <form id ="valForm" method="post">
-    <div class="x-radio">
-    <label>Координата X:
-    <input type="radio"  id="-2" name="x" value="-2">
-    <label for="-2">-2</label>
+    <form id="valForm">
+        <div class="x-radio">
+            <label>Координата X:</label>
+            <label><input type="radio" name="x" value="-2" required>-2</label>
+            <label><input type="radio" name="x" value="-1.5">-1.5</label>
+            <label><input type="radio" name="x" value="-1">-1</label>
+            <label><input type="radio" name="x" value="-0.5">-0.5</label>
+            <label><input type="radio" name="x" value="0">0</label>
+            <label><input type="radio" name="x" value="0.5">0.5</label>
+            <label><input type="radio" name="x" value="1">1</label>
+            <label><input type="radio" name="x" value="1.5">1.5</label>
+            <label><input type="radio" name="x" value="2">2</label>
+        </div>
 
-    <input type="radio"  id="-1.5" name="x" value="-1.5">
-    <label for="-1.5">-1.5</label>
+        <label for="y">Координата Y:</label>
+        <label><input type="text" id="y" placeholder="{-5...5}" required></label>
 
-    <input type="radio"  id="-1" name="x" value="-1">
-    <label for="-1">-1</label>
+        <label for="r">Радиус R:</label>
+        <label><input type="text" id="r" placeholder="{1...4}" required></label>
 
-    <input type="radio"  id="-0.5" name="x" value="-0.5">
-    <label for="-0.5">-0.5</label>
-
-    <input type="radio"  id="0" name="x" value="0">
-    <label for="0">0</label>
-
-    <input type="radio"  id="0.5" name="x" value="0.5">
-    <label for="0.5">0.5</label>
-
-    <input type="radio"  id="1" name="x" value="1">
-    <label for="1">1</label>
-
-    <input type="radio"  id="1.5" name="x" value="1.5">
-    <label for="1.5">1.5</label>
-
-    <input type="radio"  id="2" name="x" value="2">
-    <label for="2">2</label>
-    </label>
-    </div>
-
-    <label for="y">Координата Y:</label>
-    <input type="text" id="y" placeholder="{-5...5}">
-
-    <label for="r">Радиус R:</label>
-    <input type="text" id="r" placeholder="{1...4}">
-
-    <div id="alert"></div>
-       <button type="submit" class="update-data-button">Отправить данные</button>
-   </form>
-   </div>
-   <div class="table-block">
-<!--       cellspacing="6" cellpadding="15"-->
+        <div id="alert"></div>
+        <input type="submit" class="update-data-button" value="Отправить данные"></input>
+    </form>
+</div>
+<div class="table-block">
+    <!--       cellspacing="6" cellpadding="15"-->
     <table id="table">
         <caption><b>Результаты</b></caption>
-        <tr> 
+        <tr>
             <th>Координата X</th>
-            <th>Координата Y</th>  
-            <th>Радиус R</th>   
-            <th>Факт попадания в область</th> 
-            <th>Текущее время</th>   
+            <th>Координата Y</th>
+            <th>Радиус R</th>
+            <th>Факт попадания в область</th>
+            <th>Текущее время</th>
             <th>Время выполнения скрипта</th>
         </tr>
     </table>
-   </div>
-  </body>
-  <script src="js/sender.js"></script>
-  <script src="js/validator.js"></script>
-  </html>
+</div>
+</body>
+<script src="js/sender.js"></script>
+<script src="js/validator.js"></script>
+</html>
 
