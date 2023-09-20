@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--    <script src="https://yastatic.net/jquery/3.3.1/jquery.min.js"></script>-->
     <style>
         body {
             background-color: white;
@@ -26,20 +25,21 @@
             background-color: white;
             border: 5px solid black;
             border-radius: 7px;
-            padding: 5%;
+            padding: 1%;
             float: left;
             margin-top: 1%;
-            text-align: left;
-            font-size: 35px;
+            text-align: center;
+            font-size: 27px;
         }
 
         label {
             display: block;
-            margin: 5%;
+            /*margin: 1%;*/
         }
 
         .x-radio {
-            margin-bottom: 15%;
+            text-align: left;
+            margin: 10%;
         }
 
         input {
@@ -54,12 +54,15 @@
 
         .update-data-button {
             display: block;
-            margin: 10%;
+            margin-top: 5%;
+            margin-bottom: 2%;
+            margin-left: 6.5%;
             font-size: 25px;
             border-radius: 7px;
             border: 2px solid black;
             color: white;
-            padding: 9px;
+            height: 48px;
+            padding: 1px;
             background-color: black;
             cursor: pointer;
         }
@@ -77,8 +80,9 @@
             margin-left: 20%;
         }
 
-        th {
+        th,td {
             border: 3px dashed #95918C;
+            text-align: center;
         }
 
         caption {
@@ -100,9 +104,9 @@
         <img src="areas.png" alt="areas">
     </figure>
     <form id="valForm">
-        <div class="x-radio">
             <label>Координата X:</label>
-            <label><input type="radio" name="x" value="-2" required>-2</label>
+        <div class="x-radio">
+        <label><input type="radio" name="x" value="-2" required>-2</label>
             <label><input type="radio" name="x" value="-1.5">-1.5</label>
             <label><input type="radio" name="x" value="-1">-1</label>
             <label><input type="radio" name="x" value="-0.5">-0.5</label>
@@ -124,8 +128,7 @@
     </form>
 </div>
 <div class="table-block">
-    <!--       cellspacing="6" cellpadding="15"-->
-    <table id="table">
+    <table id="table" cellspacing="6" cellpadding="15">
         <caption><b>Результаты</b></caption>
         <tr>
             <th>Координата X</th>
@@ -133,7 +136,7 @@
             <th>Радиус R</th>
             <th>Факт попадания в область</th>
             <th>Текущее время</th>
-            <th>Время выполнения скрипта</th>
+            <th>Время выполнения скрипта (ms)</th>
         </tr>
     </table>
 </div>
