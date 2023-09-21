@@ -1,10 +1,10 @@
 document.getElementById('valForm').addEventListener('submit', function (e) {
     e.preventDefault();
-    let x = document.querySelectorAll('input[type="radio"]:checked')[0].value;
+    let x = document.querySelectorAll('input[type="radio"]:checked')[0];
     let y = document.getElementById('y');
     let r = document.getElementById('r');
     if (validate(x, y, r)) {
-        send(x, y, r);
+        send(x.value, y.value, r.value);
     }
 
 });

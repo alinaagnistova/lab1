@@ -19,9 +19,9 @@ function checkout($x, $y, $r){
 }
 
 if (isset($_POST['r']) && isset($_POST['x']) && isset($_POST['y'])) {
-    $x = floatval($_POST['x']);
-    $y = floatval($_POST['y']);
-    $r = floatval($_POST['r']);
+    $x = $_POST['x'];
+    $y = $_POST['y'];
+    $r = $_POST['r'];
 
     $result = checkout($x, $y, $r) ? "ПРАВДА" : "ЛОЖЬ";
     $script_time = round((microtime(true) - $start), 10);

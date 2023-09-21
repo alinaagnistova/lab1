@@ -5,10 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+
     <style>
         body {
             background-color: white;
             font-family: sans-serif;
+        }
+        body.dark{
+            background-color: black;
+            color:white;
         }
 
         .header {
@@ -16,9 +22,24 @@
             border-color: black;
             border-width: 10px;
             color: black;
-            font-size: 16px;
+            font-size: 15px;
             text-align: center;
             font-family: Arial, Helvetica, sans-serif;
+        }
+        .header.dark{
+            border-style: solid;
+            border-color: white;
+            border-width: 10px;
+            color: white;
+            font-size: 15px;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .form-block.dark{
+            background-color: black;
+            border: 5px solid white;
+            color:white;
+
         }
 
         .form-block {
@@ -29,7 +50,7 @@
             float: left;
             margin-top: 1%;
             text-align: center;
-            font-size: 27px;
+            font-size: 20px;
         }
 
         label {
@@ -43,28 +64,44 @@
         }
 
         input {
-            width: 300px;
+            width: 150px;
             height: 20px;
             border: 3px dashed #95918C;
         }
 
         input[type="radio"] {
             cursor: pointer;
+            width: 150px;
+            height: 15px;
+        }
+        #areas{
+            width:70%;
+            height:auto;
+            transition: 1s;
+            cursor: zoom-in;
+        }
+        #areas:hover {
+            transform: scale(1.4);
         }
 
         .update-data-button {
             display: block;
             margin-top: 5%;
             margin-bottom: 2%;
-            margin-left: 6.5%;
-            font-size: 25px;
+            margin-left: 25%;
+            font-size: 15px;
             border-radius: 7px;
             border: 2px solid black;
             color: white;
-            height: 48px;
+            height: 35px;
             padding: 1px;
             background-color: black;
             cursor: pointer;
+        }
+        .update-data-button.dark{
+            border: 2px solid white;
+            color: black;
+            background-color: white;
         }
 
         .update-data-button:hover {
@@ -74,10 +111,16 @@
         .update-data-button:active {
             background-color: black;
         }
+        .update-data-button:active.dark{
+            background-color: white;
+        }
 
         table {
-            border: 3px solid white;
+            /*border: 3px solid white;*/
             margin-left: 20%;
+            /*position: fixed;*/
+            /*top: 0;*/
+            /*right:0;*/
         }
 
         th,td {
@@ -86,9 +129,23 @@
         }
 
         caption {
-            font-size: 30px;
+            font-size: 25px;
             margin: 1%;
         }
+        .change-theme-button{
+            margin-right: 95%;
+            margin-bottom: 1%;
+            border-radius: 5px;
+            background-color: white;
+            cursor: pointer;
+        }
+        .change-theme-button:hover{
+            background-color: #808080;
+        }
+        .change-theme-button:active{
+            background-color: white;
+        }
+
     </style>
 </head>
 <body>
@@ -98,10 +155,14 @@
     </h1>
     <h3>Группа: P3225</h3>
     <h3>Номер варианта:3500</h3>
+    <button id="theme-toggle" class="change-theme-button">
+        <img src = "daynight.ico" alt="Иконка" width="25" height="25">
+    </button>
 </div>
+<!--<button id="theme-toggle">Переключить тему</button>-->
 <div class="form-block">
     <figure class="areas-pic">
-        <img src="areas.png" alt="areas">
+        <img src="areas.png" alt="areas" id="areas">
     </figure>
     <form id="valForm">
             <label>Координата X:</label>
@@ -118,12 +179,12 @@
         </div>
 
         <label for="y">Координата Y:</label>
-        <label><input type="text" id="y" placeholder="{-5...5}" required></label>
+        <label><input type="text" id="y" placeholder="{-5...5}" maxlength="10" required></label>
 
         <label for="r">Радиус R:</label>
-        <label><input type="text" id="r" placeholder="{1...4}" required></label>
+        <label><input type="text" id="r" placeholder="{1...4}" maxlength="10" required></label>
 
-        <input type="submit" class="update-data-button" value="Отправить данные"></input>
+        <input type="submit" class="update-data-button" value="Отправить данные">
     </form>
 </div>
 <div class="table-block">
@@ -141,5 +202,6 @@
 </div>
 </body>
 <script src="js/script.js"></script>
+<script src="js/themeToggle.js"></script>
 </html>
 
