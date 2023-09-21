@@ -9,6 +9,9 @@ document.getElementById('valForm').addEventListener('submit', function (e) {
 
 });
 
+
+
+
 function send(x, y, r) {
     let xhr = new XMLHttpRequest();
     xhr.open('POST', 'php/base.php', true);
@@ -19,7 +22,7 @@ function send(x, y, r) {
             if (response.error) {
                 alert(response.error);
             } else {
-                let table = document.querySelector('table');
+                let table = document.querySelector('#table');
                 let newRow = table.insertRow(1);
                 newRow.innerHTML =
                     '<td>' + response.x + '</td>' +
@@ -34,8 +37,6 @@ function send(x, y, r) {
     xhr.send('x=' + x + '&y=' + y + '&r=' + r);
 }
 
-
-
 function showError(element,message) {
     const errorElement = document.createElement('div');
     errorElement.classList.add('error-message');
@@ -47,8 +48,6 @@ function showError(element,message) {
     setTimeout(function () {
         errorElement.remove();
     }, 2000);
-
-
 }
 
 function validate(x, y, r) {
@@ -90,4 +89,8 @@ function validate(x, y, r) {
         return false;
     }
     return true;
+}
+
+function resetForm(){
+    document.getElementById("valForm").reset();
 }
