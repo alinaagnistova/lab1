@@ -20,7 +20,8 @@ function send(x, y, r) {
         if (xhr.readyState === 4 && xhr.status === 200) {
             let response = JSON.parse(xhr.responseText);
             if (response.error) {
-                alert(response.error);
+                let messageEl = document.querySelector("#message");
+                messageEl.textContent = response.error;
             } else {
                 let table = document.querySelector('#table');
                 let newRow = table.insertRow(1);
