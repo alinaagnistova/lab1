@@ -1,13 +1,18 @@
 const themeToggle = document.getElementById('theme-toggle');
-const body = document.body;
-const header = document.getElementsByClassName("header")[0];
-const formBlock = document.getElementsByClassName("form-block")[0];
-const buttons = document.getElementsByClassName("data-button");
+let theme = localStorage.getItem('data-theme');
+const changeThemeToDark = () => {
+    document.documentElement.setAttribute("data-theme", "dark")
+    localStorage.setItem("data-theme", "dark")
+}
+const changeThemeToLight = () => {
+    document.documentElement.setAttribute("data-theme", "light");
+    localStorage.setItem("data-theme", 'light')
+}
 themeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark');
-    header.classList.toggle('dark');
-    formBlock.classList.toggle('dark');
-    Array.from(buttons).forEach((el) => {
-        el.classList.toggle('dark');
-    });
+    let theme = localStorage.getItem('data-theme');
+    if (theme ==='dark'){
+        changeThemeToLight()
+    }else{
+        changeThemeToDark()
+    }
 });
