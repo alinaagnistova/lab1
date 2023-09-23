@@ -1,40 +1,33 @@
 <?php
-$start = microtime(true);
+require_once 'validator.php';
 date_default_timezone_set('Europe/Moscow');
+$start = microtime(true);
 
 
-function rectangle($x, $y, $r){
-    return ($x <= 0 && $x >= - $r && $y <= 0 && $y >= - $r/2);
-}
-
-function triangle($x, $y, $r){
-    return ($x >= 0 && $x <= $r/2 && $y <= 0 && $y >= - $r);
-}
-
-function circle($x, $y, $r){
-    return ($x >= 0 && $y >= 0 && pow($x, 2) + pow($y,2) <= pow($r/2, 2));
-}
-function checkout($x, $y, $r){
-    return rectangle($x, $y, $r)|| triangle($x, $y, $r) || circle($x, $y, $r);
-}
-
+//$_SERVER['REQUEST_METHOD'] === 'POST'
 if (isset($_POST['r']) && isset($_POST['x']) && isset($_POST['y'])) {
-    $x = $_POST['x'];
-    $y = $_POST['y'];
-    $r = $_POST['r'];
-
-    $result = checkout($x, $y, $r) ? "ПРАВДА" : "ЛОЖЬ";
-    $script_time = round((microtime(true) - $start), 10);
-    $response = [
-        'x' => $x,
-        'y' => $y,
-        'r' => $r,
-        'result' => $result,
-        'time' => date('H:i:s'),
-        'script_time' => $script_time
-    ];
-    header('Content-Type: application/json');
-    echo json_encode($response);
+    $x = floatval($_POST['x']);
+    $y = floatval($_POST['y']);
+    $r = floatval($_POST['r']);
+    if (validate($x, $y, $r)) {
+        $result = checkout($x, $y, $r) ? "ПРАВДА" : "ЛОЖЬ";
+        $script_time = round((microtime(true) - $start), 10);
+        $response = [
+            'x' => $x,
+            'y' => $y,
+            'r' => $r,
+            'result' => $result,
+            'time' => date('H:i:s'),
+            'script_time' => $script_time
+        ];
+        header('Content-Type: application/json');
+        echo json_encode($response);
+    } else {
+        echo json_encode(['error' => 'Невалидные данные']);
+        http_response_code(400);
+    }
+} else {
+    echo json_encode(['error' => 'Валидация не завершена']);
+    http_response_code(400);
 }
-
 ?>
